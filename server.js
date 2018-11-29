@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require("method-override")("_method"));
 
-/*--- For use with personal DB. Uncomment when ready ---*/
+/*--- For use with personal DB. Uncomment when ready to use ---*/
 // app.use("/api/yocal", require("./routes/api"));
 
 app.get("/*", (req, res, next) => {

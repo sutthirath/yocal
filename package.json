@@ -4,7 +4,8 @@
   "description": "Social app for travelers who would like to connect with local experts",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "author": "Sutthirath Sean Vilaysane",
   "license": "ISC",
