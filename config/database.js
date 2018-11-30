@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb://localhost/yocal",
+  "mongodb://localhost/yocaldb",
   { useNewUrlParser: true }
 );
 
