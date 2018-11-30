@@ -1,0 +1,20 @@
+.HeroImg {
+  height: 70vh;
+  width: 99vw;
+  border: 1px solid grey;
+}
+
+.LogInBtn {
+  background-color: white;
+  border-radius: 50px;
+  height: 60px;
+  width: 300px;
+}
+
+.SignUpBtn {
+  background-color: rgb(63, 63, 63);
+  color: white;
+  border-radius: 50px;
+  height: 60px;
+  width: 300px;
+}
