@@ -25,7 +25,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(require("method-override")("_method"));
 
-/*--- For use with personal DB. Uncomment when ready to use ---*/
 // app.use("/api/yocal", require("./routes/api"));
 
 var loginLimiter = new RateLimit({
@@ -62,5 +61,3 @@ var port = process.env.PORT || 3001;
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);
 });
-
-module.exports = server;

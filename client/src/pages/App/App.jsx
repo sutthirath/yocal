@@ -5,7 +5,8 @@ import axios from "axios";
 import Landing from "../Landing/Landing";
 import Login from "../../components/Login/Login";
 import Signup from "../../components/Signup/Signup";
-import { UserProfile } from "../UserProfile/UserProfile";
+import Main from "../Main/Main";
+import Nav from "../../components/Nav/Nav";
 
 class App extends Component {
   constructor(props) {
@@ -93,18 +94,8 @@ class App extends Component {
     if (user) {
       return (
         <div className="App">
-          <header>
-            <h1>Welcome to my Site!</h1>
-          </header>
-          <div className="content-box">
-            <UserProfile user={user} logout={this.logout} />
-            <p>
-              <a onClick={this.handleClick}>
-                Test the protected route. Results below...
-              </a>
-            </p>
-            <p>{this.state.lockedResult}</p>
-          </div>
+          <Nav user={user} logout={this.logout} />
+          <Main />
         </div>
       );
     } else {

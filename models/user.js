@@ -19,15 +19,15 @@ const userSchema = new mongoose.Schema({
     required: [true, "You must enter an email"],
     minlength: [5, "Email must be between 5 and 99 characters"],
     maxlength: [99, "Email must be between 5 and 99 characters"]
-  },
-  birthday: {
-    type: Date,
-    required: [true, "You must enter your birthday"]
-  },
-  photo: {
-    type: Buffer,
-    contentType: String
   }
+  // birthday: {
+  //   type: Date,
+  //   required: [true, "You must enter your birthday"]
+  // },
+  // photo: {
+  //   type: Buffer,
+  //   contentType: String
+  // }
 });
 
 // This returns a user object without a password

@@ -1,7 +1,7 @@
 .Login {
   display: inline-block;
+  border: 1px solid darkgray;
   width: 25vw;
-  background-color: lightgreen;
   padding: 1rem;
   margin: 1rem;
 }

@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 
 mongoose.connect(
-  "mongodb://localhost/yocaldb",
+  process.env.DATABASE_URL,
   { useNewUrlParser: true }
 );
 

@@ -1,7 +1,7 @@
 .Signup {
   display: inline-block;
   width: 25vw;
-  background-color: yellow;
+  border: 1px solid darkgray;
   padding: 1rem;
   margin: 1rem;
 }
@@ -25,6 +25,7 @@
 }
 
 li {
+  list-style-type: none;
   margin: 0.1em;
   padding: 0.1em;
 }
