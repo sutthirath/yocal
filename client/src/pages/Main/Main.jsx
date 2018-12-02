@@ -1,4 +1,6 @@
 import React from "react";
+import "./Main.css";
+import Search from "../../components/Search/Search";
 
 const dummy = {
   meta: { code: 200, requestId: "5c03a5614434b953654c4085" },
@@ -1446,6 +1448,7 @@ const dummy = {
     confident: false
   }
 };
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -1456,9 +1459,9 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
+    /*
     const context = this;
 
-    /*
     navigator.geolocation.getCurrentPosition(function(position) {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
@@ -1479,17 +1482,18 @@ class Main extends React.Component {
   render() {
     return (
       <div className="Main">
+        <Search />
         <h5>See whats nearby:</h5>
         {this.state.places.map((place, idx) => {
           const imgSrc =
             place.categories.length > 0 && place.categories[0].icon;
           return (
-            <div key={idx} className="card btn">
+            <div key={idx} className="Place btn transparent card">
               <span className="left">{place.name}</span>
               {imgSrc && (
                 <img
                   src={`${imgSrc.prefix}bg_32${imgSrc.suffix}`}
-                  alt="image"
+                  alt="icon"
                   className="right"
                 />
               )}

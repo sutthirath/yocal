@@ -1,0 +1,10 @@
+.Main {
+  height: 92.5vh;
+  width: 100vw;
+  overflow: scroll;
+}
+
+.Place {
+  width: 75vw;
+  overflow: hidden;
+}

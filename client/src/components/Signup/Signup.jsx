@@ -60,6 +60,7 @@ class Signup extends Component {
         passHasDig: false
       });
     }
+    // eslint-disable-next-line no-useless-escape
     if (e.target.value.match(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g)) {
       this.setState({
         passHasPunc: true
