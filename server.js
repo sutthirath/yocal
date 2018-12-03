@@ -9,11 +9,14 @@ const locked = require("./routes/locked");
 const RateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
-var socket = require("socket.io");
+let socket = require("socket.io");
 
 const app = express();
 
 require("./config/database");
+server = app.listen(8080, function() {
+  console.log("server is running on port 8080");
+});
 
 io = socket(server);
 

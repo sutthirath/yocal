@@ -5,10 +5,10 @@ import axios from "axios";
 import Landing from "../Landing/Landing";
 import Login from "../../components/Login/Login";
 import Signup from "../../components/Signup/Signup";
-// import Main from "../Main/Main";
-// import Nav from "../../components/Nav/Nav";
-// import Search from "../../components/Search/Search";
-// import Footer from "../../components/Footer/Footer";
+import Main from "../Main/Main";
+import Nav from "../../components/Nav/Nav";
+import Search from "../../components/Search/Search";
+import Footer from "../../components/Footer/Footer";
 import { Chat } from "../Chat/Chat";
 
 class App extends Component {
@@ -96,13 +96,25 @@ class App extends Component {
     let user = this.state.user;
     if (user) {
       return (
-        <div className="App">
-          <Chat />
-          {/* <Nav user={this.state.user} logout={this.state.logout} />
-          <Search />
-          <Main user={user} logout={this.logout} />
-          <Footer /> */}
-        </div>
+        <Router>
+          <div className="App">
+            <Nav user={this.state.user} logout={this.state.logout} />
+            <Switch>
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <div>
+                    <Search />
+                    <Main />
+                    <Footer />
+                  </div>
+                )}
+              />
+              <Route exact path="/chat" render={() => <Chat />} />
+            </Switch>
+          </div>
+        </Router>
       );
     } else {
       return (
