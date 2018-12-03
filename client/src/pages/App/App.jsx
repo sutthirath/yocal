@@ -6,7 +6,9 @@ import Landing from "../Landing/Landing";
 import Login from "../../components/Login/Login";
 import Signup from "../../components/Signup/Signup";
 import Main from "../Main/Main";
+import { Chat } from "../Chat/Chat";
 import Nav from "../../components/Nav/Nav";
+import Footer from "../../components/Footer/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -96,6 +98,7 @@ class App extends Component {
         <div className="App">
           <Nav user={user} logout={this.logout} />
           <Main />
+          <Footer />
         </div>
       );
     } else {
@@ -114,6 +117,7 @@ class App extends Component {
                 path="/signup"
                 render={() => <Signup liftToken={this.liftTokenToState} />}
               />
+              <Route exact path="/chat" render={() => <Chat />} />
             </Switch>
           </div>
         </Router>

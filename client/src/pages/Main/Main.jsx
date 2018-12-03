@@ -1483,7 +1483,7 @@ class Main extends React.Component {
     return (
       <div className="Main">
         <Search />
-        <h5>See whats nearby:</h5>
+        <h5>See What's Nearby:</h5>
         {this.state.places.map((place, idx) => {
           const imgSrc =
             place.categories.length > 0 && place.categories[0].icon;
@@ -1500,7 +1500,6 @@ class Main extends React.Component {
             </div>
           );
         })}
-        {console.log(this.state.places)}
       </div>
     );
   }
