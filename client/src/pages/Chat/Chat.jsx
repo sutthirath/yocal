@@ -6,7 +6,6 @@ export class Chat extends React.Component {
     super(props);
 
     this.state = {
-      username: "",
       message: "",
       messages: []
     };
@@ -26,7 +25,7 @@ export class Chat extends React.Component {
     this.sendMessage = ev => {
       ev.preventDefault();
       this.socket.emit("SEND_MESSAGE", {
-        author: this.state.username,
+        author: this.props.user.name,
         message: this.state.message
       });
       this.setState({ message: "" });
@@ -53,17 +52,15 @@ export class Chat extends React.Component {
                 </div>
               </div>
               <div className="card-footer">
-                <input
-                  type="text"
-                  placeholder="Username"
-                  value={this.state.username}
+                <p
+                  value={this.props.user.name}
                   onChange={ev => this.setState({ username: ev.target.value })}
                   className="form-control"
                 />
                 <br />
                 <input
                   type="text"
-                  placeholder="Message"
+                  placeholder="Ask for advice here!"
                   className="form-control"
                   value={this.state.message}
                   onChange={ev => this.setState({ message: ev.target.value })}

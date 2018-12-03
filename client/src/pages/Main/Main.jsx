@@ -1458,23 +1458,22 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    /*
-    const context = this;
+    //   const context = this;
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
+    //   navigator.geolocation.getCurrentPosition(function(position) {
+    //     let lat = position.coords.latitude;
+    //     let lon = position.coords.longitude;
 
-      fetch(
-        `https://api.foursquare.com/v2/venues/search?ll=${lat},${lon}&client_id=${
-          process.env.REACT_APP_CLIENT_ID
-        }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=20180323`
-      )
-        .then(response => response.json())
-        .then(place => context.setState({ places: place.response.venues }));
-    });
-  }
-  */
+    //     fetch(
+    //       `https://api.foursquare.com/v2/venues/search?ll=${lat},${lon}&client_id=${
+    //         process.env.REACT_APP_CLIENT_ID
+    //       }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=20180323`
+    //     )
+    //       .then(response => response.json())
+    //       .then(place => context.setState({ places: place.response.venues }));
+    //   });
+    // }
+
     this.setState({ places: dummy.response.venues });
   }
 

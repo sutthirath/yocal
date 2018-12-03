@@ -98,7 +98,7 @@ class App extends Component {
       return (
         <Router>
           <div className="App">
-            <Nav user={this.state.user} logout={this.state.logout} />
+            <Nav user={this.state.user} logout={this.logout} />
             <Switch>
               <Route
                 exact
@@ -111,7 +111,11 @@ class App extends Component {
                   </div>
                 )}
               />
-              <Route exact path="/chat" render={() => <Chat />} />
+              <Route
+                exact
+                path="/chat"
+                render={() => <Chat user={this.state.user} />}
+              />
             </Switch>
           </div>
         </Router>
