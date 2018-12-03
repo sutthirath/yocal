@@ -1,6 +1,5 @@
 import React from "react";
 import "./Main.css";
-import Search from "../../components/Search/Search";
 
 const dummy = {
   meta: { code: 200, requestId: "5c03a5614434b953654c4085" },
@@ -1482,13 +1481,12 @@ class Main extends React.Component {
   render() {
     return (
       <div className="Main">
-        <Search />
         <h5>See What's Nearby:</h5>
         {this.state.places.map((place, idx) => {
           const imgSrc =
             place.categories.length > 0 && place.categories[0].icon;
           return (
-            <div key={idx} className="Place btn transparent card">
+            <div key={idx} className="Place btn amber card">
               <span className="left">{place.name}</span>
               {imgSrc && (
                 <img

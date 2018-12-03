@@ -5,10 +5,11 @@ import axios from "axios";
 import Landing from "../Landing/Landing";
 import Login from "../../components/Login/Login";
 import Signup from "../../components/Signup/Signup";
-import Main from "../Main/Main";
+// import Main from "../Main/Main";
+// import Nav from "../../components/Nav/Nav";
+// import Search from "../../components/Search/Search";
+// import Footer from "../../components/Footer/Footer";
 import { Chat } from "../Chat/Chat";
-import Nav from "../../components/Nav/Nav";
-import Footer from "../../components/Footer/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -96,9 +97,11 @@ class App extends Component {
     if (user) {
       return (
         <div className="App">
-          <Nav user={user} logout={this.logout} />
-          <Main />
-          <Footer />
+          <Chat />
+          {/* <Nav user={this.state.user} logout={this.state.logout} />
+          <Search />
+          <Main user={user} logout={this.logout} />
+          <Footer /> */}
         </div>
       );
     } else {
@@ -117,7 +120,6 @@ class App extends Component {
                 path="/signup"
                 render={() => <Signup liftToken={this.liftTokenToState} />}
               />
-              <Route exact path="/chat" render={() => <Chat />} />
             </Switch>
           </div>
         </Router>

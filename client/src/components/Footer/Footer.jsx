@@ -4,12 +4,12 @@ import "./Footer.css";
 
 const Footer = () => (
   <Router>
-    <div className="Footer">
-      <footer className="page-footer grey">
-        <Link to="/chat">
-          <button className="btn">Chat!</button>
-        </Link>
-      </footer>
+    <div className="Footer green">
+      <Link to="/chat">
+        <footer className="page-footer transparent">
+          <h5>Ask a yocal!</h5>
+        </footer>
+      </Link>
     </div>
   </Router>
 );

@@ -9,10 +9,21 @@ const locked = require("./routes/locked");
 const RateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+var socket = require("socket.io");
 
 const app = express();
 
 require("./config/database");
+
+io = socket(server);
+
+io.on("connection", socket => {
+  console.log(socket.id);
+
+  socket.on("SEND_MESSAGE", function(data) {
+    io.emit("RECEIVE_MESSAGE", data);
+  });
+});
 
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
