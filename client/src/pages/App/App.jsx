@@ -10,9 +10,9 @@ import Nav from "../../components/Nav/Nav";
 import Search from "../../components/Search/Search";
 import Footer from "../../components/Footer/Footer";
 import { Chat } from "../Chat/Chat";
-// import moment from "moment";
+import moment from "moment";
 
-/*---Dummy Data---*/
+/*---Dummy Data---
 const dummy = {
   meta: { code: 200, requestId: "5c03a5614434b953654c4085" },
   response: {
@@ -1459,6 +1459,7 @@ const dummy = {
     confident: false
   }
 };
+*/
 
 class App extends Component {
   constructor(props) {
@@ -1542,52 +1543,52 @@ class App extends Component {
   }
 
   // Takes user's input and calls fetch
-  // handleSearch = e => {
-  //   this.setState({
-  //     search: e.target.value
-  //   });
+  handleSearch = e => {
+    this.setState({
+      search: e.target.value
+    });
 
-  //   fetch(
-  //     `https://api.foursquare.com/v2/venues/search?query=${
-  //       this.state.search
-  //     }&ll=${this.state.latitude},${this.state.longitude}&client_id=${
-  //       process.env.REACT_APP_CLIENT_ID
-  //     }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=${moment(
-  //       new Date()
-  //     ).format("YYYYMMDD")}`
-  //   )
-  //     .then(response => response.json())
-  //     .then(place => this.setState({ places: place.response.venues }));
+    fetch(
+      `https://api.foursquare.com/v2/venues/search?query=${e.target.value}&ll=${
+        this.state.latitude
+      },${this.state.longitude}&client_id=${
+        process.env.REACT_APP_CLIENT_ID
+      }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=${moment(
+        new Date()
+      ).format("YYYYMMDD")}`
+    )
+      .then(response => response.json())
+      .then(place => this.setState({ places: place.response.venues }));
 
-  //   console.log("SEARCH: ", this.state.search);
-  //   console.log("Places: ", this.state.places);
-  // };
+    // console.log("SEARCH: ", this.state.search);
+    // console.log("Places: ", this.state.places);
+  };
 
   componentDidMount() {
     this.checkForLocalToken();
 
-    // const context = this;
+    const context = this;
 
-    // navigator.geolocation.getCurrentPosition(function(position) {
-    //   let lat = position.coords.latitude;
-    //   let lon = position.coords.longitude;
+    navigator.geolocation.getCurrentPosition(function(position) {
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
 
-    //   context.setState({
-    //     latitude: lat,
-    //     longitude: lon
-    //   });
+      context.setState({
+        latitude: lat,
+        longitude: lon
+      });
 
-    //   fetch(
-    //     `https://api.foursquare.com/v2/venues/search?ll=${lat},${lon}&client_id=${
-    //       process.env.REACT_APP_CLIENT_ID
-    //     }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=${moment(
-    //       new Date()
-    //     ).format("YYYYMMDD")}`
-    //   )
-    //     .then(response => response.json())
-    //     .then(place => context.setState({ places: place.response.venues }));
-    // });
-    this.setState({ places: dummy.response.venues });
+      fetch(
+        `https://api.foursquare.com/v2/venues/search?ll=${lat},${lon}&client_id=${
+          process.env.REACT_APP_CLIENT_ID
+        }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=${moment(
+          new Date()
+        ).format("YYYYMMDD")}`
+      )
+        .then(response => response.json())
+        .then(place => context.setState({ places: place.response.venues }));
+    });
+    // this.setState({ places: dummy.response.venues });
   }
 
   render() {
