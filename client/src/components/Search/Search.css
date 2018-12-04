@@ -1,7 +1,24 @@
+.Search {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 .SearchBox {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0 10px;
-  width: 90vw;
-  background-color: white;
   border-radius: 10px;
+  background-color: white;
+  width: 90vw;
+}
+
+i {
+  color: #fcd411;
+}
+
+input:focus {
+  border-bottom: 1px solid #fcd411 !important;
+  box-shadow: none !important;
 }

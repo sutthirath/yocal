@@ -1,5 +1,7 @@
 import React from "react";
 import io from "socket.io-client";
+import axios from "axios";
+import moment from "moment";
 
 export class Chat extends React.Component {
   constructor(props) {
@@ -20,13 +22,27 @@ export class Chat extends React.Component {
       console.log(data);
       this.setState({ messages: [...this.state.messages, data] });
       console.log(this.state.messages);
+
+      axios
+        .post("/chat_history", {
+          author: this.props.user.name,
+          message: data.message,
+          time: data.time
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     };
 
     this.sendMessage = ev => {
       ev.preventDefault();
       this.socket.emit("SEND_MESSAGE", {
         author: this.props.user.name,
-        message: this.state.message
+        message: this.state.message,
+        time: new Date()
       });
       this.setState({ message: "" });
     };
@@ -42,10 +58,11 @@ export class Chat extends React.Component {
                 <div className="card-title">Yocal Chat</div>
                 <hr />
                 <div className="messages">
-                  {this.state.messages.map(({ message, author }, i) => {
+                  {this.state.messages.map(({ message, author, time }, i) => {
                     return (
                       <div key={i}>
-                        {author}: {message}
+                        {author}:{message}
+                        {moment(time).calendar()}
                       </div>
                     );
                   })}
@@ -69,6 +86,7 @@ export class Chat extends React.Component {
                 <button
                   onClick={this.sendMessage}
                   className="btn btn-primary form-control"
+                  // method="POST"
                 >
                   Send
                 </button>
