@@ -35,8 +35,6 @@ io.on("connection", socket => {
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: false }));
 
-mongoose.connect("mongodb://localhost/jwtAuth");
-
 app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use(express.urlencoded({ extended: true }));
