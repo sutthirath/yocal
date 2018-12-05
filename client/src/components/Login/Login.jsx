@@ -99,7 +99,11 @@ class Login extends Component {
               />
             </div>
           </div>
-          <input type="submit" value="Log In!" />
+          <input
+            className="loginBtn transparent btn"
+            type="submit"
+            value="Log In!"
+          />
         </form>
       </div>
     );

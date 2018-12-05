@@ -7,7 +7,7 @@ const User = require("../models/User");
 // Get all favorites from current user
 router.get("/", (req, res) => {
   Favorite.find({}, (err, favorite) => {
-    console.log(favorite);
+    res.json(favorite);
   });
 });
 

@@ -1,14 +1,16 @@
-.HeroImg {
-  height: 70vh;
-  width: 99vw;
-  border: 1px solid grey;
+.Landing {
+  background-color: #fcd411;
+}
+
+.landingBtn {
+  width: 100vw;
 }
 
 .LogInBtn {
   background-color: white;
   border-radius: 50px;
   height: 60px;
-  width: 300px;
+  width: 90vw;
 }
 
 .SignUpBtn {
@@ -16,5 +18,5 @@
   color: white;
   border-radius: 50px;
   height: 60px;
-  width: 300px;
+  width: 90vw;
 }

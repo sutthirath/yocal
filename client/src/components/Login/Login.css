@@ -1,7 +1,7 @@
 .Login {
   display: inline-block;
   border: 1px solid darkgray;
-  width: 25vw;
+  width: 90vw;
   padding: 1rem;
   margin: 1rem;
 }
@@ -22,4 +22,8 @@
   text-align: left;
   padding: 0.3em;
   width: 35%;
+}
+
+.loginBtn {
+  border: 1px solid white;
 }

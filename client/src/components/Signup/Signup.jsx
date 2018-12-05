@@ -225,7 +225,11 @@ class Signup extends Component {
               </li>
             </ul>
           </div>
-          <input type="submit" value="Sign Up!" />
+          <input
+            className="btn transparent signupBtn"
+            type="submit"
+            value="Sign Up!"
+          />
         </form>
       </div>
     );

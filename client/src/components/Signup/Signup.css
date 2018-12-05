@@ -1,6 +1,6 @@
 .Signup {
   display: inline-block;
-  width: 25vw;
+  width: 90vw;
   border: 1px solid darkgray;
   padding: 1rem;
   margin: 1rem;
@@ -36,4 +36,8 @@ li {
 
 .green {
   background-color: YellowGreen;
+}
+
+.signupBtn {
+  border: 1px solid white;
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import Axios from "axios";
-import BackBtn from "../BackBtn/BackBtn";
 
 class Favorites extends React.Component {
   // This does a post request
@@ -26,8 +25,10 @@ class Favorites extends React.Component {
   render() {
     return (
       <div className="Favorites">
-        <BackBtn />
-        <button onClick={() => this.handleTest(this.props.user._id)}>
+        <button
+          className="btn amber"
+          onClick={() => this.handleTest(this.props.user._id)}
+        >
           Save to Favorites
         </button>
       </div>

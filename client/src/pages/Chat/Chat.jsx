@@ -2,6 +2,7 @@ import React from "react";
 import io from "socket.io-client";
 import axios from "axios";
 import moment from "moment";
+import "./Chat.css";
 
 export class Chat extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ export class Chat extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-4">
-            <div className="card">
+            <div className="Chat card">
               <div className="card-body">
                 <div className="card-title">Yocal Chat</div>
                 <hr />
@@ -72,14 +73,17 @@ export class Chat extends React.Component {
                   {this.state.messages.map(({ message, author, time }, i) => {
                     return (
                       <div key={i}>
-                        {author}:{message}
-                        {moment(time).calendar()}
+                        <span className="left">
+                          {author}:{message}
+                        </span>
+                        <br />
+                        <span className="right">{moment(time).calendar()}</span>
                       </div>
                     );
                   })}
                 </div>
               </div>
-              <div className="card-footer">
+              <div className="card-footer bottom">
                 <p
                   value={this.props.user.name}
                   onChange={ev => this.setState({ username: ev.target.value })}
