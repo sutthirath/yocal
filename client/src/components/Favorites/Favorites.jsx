@@ -1,12 +1,19 @@
 import React from "react";
 import Axios from "axios";
+import BackBtn from "../BackBtn/BackBtn";
 
 class Favorites extends React.Component {
   // This does a post request
   handleTest(e) {
     Axios.post("/favorites", {
       id: e,
-      venueId: "IT WORKS!!!"
+      venueId: this.props.venue.id,
+      name: this.props.venue.name,
+      city: this.props.venue.location.city,
+      state: this.props.venue.location.state,
+      photo: `${this.props.venue.bestPhoto.prefix}150x150${
+        this.props.venue.bestPhoto.suffix
+      }`
     })
       .then(function(response) {
         console.log(response);
@@ -16,19 +23,13 @@ class Favorites extends React.Component {
       });
   }
 
-  handleTest2() {
-    Axios.get("/favorites").then(res => {
-      console.log(res);
-    });
-  }
-
   render() {
     return (
       <div className="Favorites">
+        <BackBtn />
         <button onClick={() => this.handleTest(this.props.user._id)}>
-          TEST BUTTON
+          Save to Favorites
         </button>
-        <button onClick={this.handleTest2}>TEST 2 BUTTON</button>
       </div>
     );
   }

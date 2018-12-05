@@ -12,6 +12,7 @@ import Footer from "../../components/Footer/Footer";
 import Details from "../Details/Details";
 import { Chat } from "../Chat/Chat";
 import moment from "moment";
+import FavoriteList from "../FavoriteList/FavoriteList";
 
 /*---Dummy Data---*/
 const dummy = {
@@ -1639,6 +1640,7 @@ class App extends Component {
                   />
                 )}
               />
+              <Route exact path="/myplaces" render={() => <FavoriteList />} />
             </Switch>
           </div>
         </Router>

@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const Footer = () => (
-  <div className="Footer green" onClick={() => window.location.reload()}>
-    <Link to="/chat">
-      <footer className="page-footer transparent">
-        <h5>Ask a yocal!</h5>
-      </footer>
-    </Link>
+  <div className="Footer">
+    <footer className="page-footer transparent">
+      <ul>
+        <Link to="/myplaces">
+          <li className="myPlacesBtn left">My Places</li>
+        </Link>
+        <Link to="/chat">
+          <li className="chatBtn right">Chat</li>
+        </Link>
+      </ul>
+    </footer>
   </div>
 );
 
