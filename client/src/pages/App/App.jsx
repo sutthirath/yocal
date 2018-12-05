@@ -9,10 +9,11 @@ import Main from "../Main/Main";
 import Nav from "../../components/Nav/Nav";
 import Search from "../../components/Search/Search";
 import Footer from "../../components/Footer/Footer";
+import Details from "../Details/Details";
 import { Chat } from "../Chat/Chat";
 import moment from "moment";
 
-/*---Dummy Data---
+/*---Dummy Data---*/
 const dummy = {
   meta: { code: 200, requestId: "5c03a5614434b953654c4085" },
   response: {
@@ -1459,7 +1460,6 @@ const dummy = {
     confident: false
   }
 };
-*/
 
 class App extends Component {
   constructor(props) {
@@ -1469,10 +1469,12 @@ class App extends Component {
       user: null,
       error: null,
       lockedResult: "",
+      title: "See What's Nearby:",
       search: "",
-      latitude: null,
-      longitude: null,
-      places: []
+      latitude: 47.6077714, //Change to null after dev
+      longitude: -122.3356416, //Change to null after dev
+      places: [],
+      currentPlace: null
     };
     this.checkForLocalToken = this.checkForLocalToken.bind(this);
     this.logout = this.logout.bind(this);
@@ -1545,7 +1547,8 @@ class App extends Component {
   // Takes user's input and calls fetch
   handleSearch = e => {
     this.setState({
-      search: e.target.value
+      search: e.target.value,
+      title: `Results for "${e.target.value}"`
     });
 
     fetch(
@@ -1559,36 +1562,40 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(place => this.setState({ places: place.response.venues }));
+  };
 
-    // console.log("SEARCH: ", this.state.search);
-    // console.log("Places: ", this.state.places);
+  // Gets the venue id of div clicked
+  handleVenue = e => {
+    this.setState({
+      currentPlace: e
+    });
   };
 
   componentDidMount() {
     this.checkForLocalToken();
 
-    const context = this;
+    // const context = this;
 
-    navigator.geolocation.getCurrentPosition(function(position) {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
+    // navigator.geolocation.getCurrentPosition(function(position) {
+    //   let lat = position.coords.latitude;
+    //   let lon = position.coords.longitude;
 
-      context.setState({
-        latitude: lat,
-        longitude: lon
-      });
+    //   context.setState({
+    //     latitude: lat,
+    //     longitude: lon
+    //   });
 
-      fetch(
-        `https://api.foursquare.com/v2/venues/search?ll=${lat},${lon}&client_id=${
-          process.env.REACT_APP_CLIENT_ID
-        }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=${moment(
-          new Date()
-        ).format("YYYYMMDD")}`
-      )
-        .then(response => response.json())
-        .then(place => context.setState({ places: place.response.venues }));
-    });
-    // this.setState({ places: dummy.response.venues });
+    //   fetch(
+    //     `https://api.foursquare.com/v2/venues/search?ll=${lat},${lon}&client_id=${
+    //       process.env.REACT_APP_CLIENT_ID
+    //     }&client_secret=${process.env.REACT_APP_CLIENT_SECRET}&v=${moment(
+    //       new Date()
+    //     ).format("YYYYMMDD")}`
+    //   )
+    //     .then(response => response.json())
+    //     .then(place => context.setState({ places: place.response.venues }));
+    // });
+    this.setState({ places: dummy.response.venues });
   }
 
   render() {
@@ -1598,6 +1605,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <Nav user={this.state.user} logout={this.logout} />
+
             <Switch>
               <Route
                 exact
@@ -1605,7 +1613,13 @@ class App extends Component {
                 render={() => (
                   <div>
                     <Search handleSearch={this.handleSearch} />
-                    <Main places={this.state.places} />
+                    <Main
+                      places={this.state.places}
+                      title={this.state.title}
+                      lat1={this.state.latitude}
+                      lon1={this.state.longitude}
+                      handleVenue={this.handleVenue}
+                    />
                     <Footer />
                   </div>
                 )}
@@ -1614,6 +1628,16 @@ class App extends Component {
                 exact
                 path="/chat"
                 render={() => <Chat user={this.state.user} />}
+              />
+              <Route
+                exact
+                path="/details"
+                render={() => (
+                  <Details
+                    user={this.state.user}
+                    currentPlace={this.state.currentPlace}
+                  />
+                )}
               />
             </Switch>
           </div>

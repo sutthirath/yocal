@@ -48,6 +48,17 @@ export class Chat extends React.Component {
     };
   }
 
+  componentDidMount() {
+    let chatHistory = [];
+    axios.get("/chat_history").then(res => {
+      res.data.map(msg => {
+        chatHistory.push(msg);
+        return chatHistory;
+      });
+      this.setState({ messages: chatHistory });
+    });
+  }
+
   render() {
     return (
       <div className="container">

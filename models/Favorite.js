@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const favoriteSchema = new mongoose.Schema({
-  place: {
-    name: String,
-    location: String
-  }
+  venueId: String
 });
 
 const Favorite = mongoose.model("Favorite", favoriteSchema);

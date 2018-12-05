@@ -11,6 +11,8 @@ const RateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
 let socket = require("socket.io");
+// TEST
+const favorite = require("./routes/favorites");
 
 const app = express();
 
@@ -61,6 +63,9 @@ app.use("/auth/login", loginLimiter);
 app.use("/auth/signup", signupLimiter);
 
 app.use("/chat_history", chatHistory);
+
+// THIS IS A TEST
+app.use("/favorites", favorite);
 
 app.use("/auth", auth);
 // This line uses the express-jwt node module to protect the routes
