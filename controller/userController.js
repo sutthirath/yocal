@@ -3,7 +3,7 @@ const User = require("../models/User");
 function showUsers(req, res) {
   User.find({}).exec(function(err, result) {
     if (!result) return res.status(404).send();
-    var array = [];
+    let array = [];
     result.map(function(data) {
       array.push(data.foo);
     });

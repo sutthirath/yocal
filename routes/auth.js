@@ -36,7 +36,7 @@ router.post("/signup", (req, res) => {
             });
           } else {
             // Log the user in (sign a new token)
-            var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
+            let token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
               expiresIn: 60 * 60 * 24
             });
             // Return user and token to React app
@@ -60,7 +60,7 @@ router.post("/login", (req, res) => {
       // If there is a user, check their entered password against the DB hash
       if (user.authenticated(req.body.password)) {
         // if it matches: log them in (sign a token)
-        var token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
+        let token = jwt.sign(user.toObject(), process.env.JWT_SECRET, {
           expiresIn: 60 * 60 * 24
         });
         res.json({

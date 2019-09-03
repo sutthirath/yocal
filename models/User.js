@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const Favorite = require("../models/Favorite");
-// dirtying the source
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
