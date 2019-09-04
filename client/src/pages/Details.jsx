@@ -1,9 +1,9 @@
 import React from "react";
 import Axios from "axios";
 import moment from "moment";
-import Favorites from "../../components/Favorites/Favorites";
-import "./Details.css";
-import BackBtn from "../../components/BackBtn/BackBtn";
+
+import Favorites from "../components/Favorites";
+import BackBtn from "../components/BackBtn";
 
 class Details extends React.Component {
   constructor(props) {
@@ -44,14 +44,12 @@ class Details extends React.Component {
     console.log(detail);
 
     return (
-      <div className="DetailsParent">
+      <div className="conatiner">
         <BackBtn />
-        <div className="Details card">
+        <div className="card" style={styles.details}>
           <div className="card-image">
             <img
-              src={`${detail.bestPhoto.prefix}150x150${
-                detail.bestPhoto.suffix
-              }`}
+              src={`${detail.bestPhoto.prefix}150x150${detail.bestPhoto.suffix}`}
               alt=""
             />
             <span className="card-title">{detail.name}</span>
@@ -70,5 +68,13 @@ class Details extends React.Component {
     );
   }
 }
+
+const styles = {
+  details: {
+    height: "81vh",
+    width: "100vw",
+    top: "6em"
+  }
+};
 
 export default Details;

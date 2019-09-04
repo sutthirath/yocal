@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
 import axios from "axios";
-import Landing from "../Landing/Landing";
-import Login from "../../components/Login/Login";
-import Signup from "../../components/Signup/Signup";
-import Main from "../Main/Main";
-import Nav from "../../components/Nav/Nav";
-import Search from "../../components/Search/Search";
-import Footer from "../../components/Footer/Footer";
-import Details from "../Details/Details";
-import { Chat } from "../Chat/Chat";
 import moment from "moment";
-import FavoriteList from "../FavoriteList/FavoriteList";
+
+import Landing from "./pages/Landing";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Main from "./pages/Main";
+import Nav from "./components/Nav";
+import Search from "./components/Search";
+import Footer from "./components/Footer";
+import Details from "./pages/Details";
+import { Chat } from "./pages/Chat";
+import FavoriteList from "./pages/FavoriteList";
 
 class App extends Component {
   constructor(props) {
@@ -162,7 +162,7 @@ class App extends Component {
     if (user) {
       return (
         <Router>
-          <div className="App">
+          <div className="App" styles={styles.container}>
             <Nav user={this.state.user} logout={this.logout} />
 
             <Switch>
@@ -214,7 +214,7 @@ class App extends Component {
     } else {
       return (
         <Router>
-          <div className="App">
+          <div className="App" styles={styles.container}>
             <Switch>
               <Route exact path="/" render={() => <Landing />} />
               <Route
@@ -234,5 +234,14 @@ class App extends Component {
     }
   }
 }
+
+const styles = {
+  container: {
+    textAlign: "center",
+    backgroundColor: "#fcd411",
+    height: "100vh",
+    width: "100vw"
+  }
+};
 
 export default App;

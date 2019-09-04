@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ErrorPanel from "../../ErrorPanel";
-import "./Login.css";
+
+import ErrorPanel from "../ErrorPanel";
 
 class Login extends Component {
   constructor(props) {
@@ -69,15 +69,15 @@ class Login extends Component {
       ""
     );
     return (
-      <div className="Login">
+      <div className="Login" style={styles.container}>
         <h3>Log in:</h3>
         {errorPanel}
         <form onSubmit={this.handleSubmit}>
-          <div className="input-box">
-            <div className="left-col">
+          <div className="input-box" style={styles.inputBox}>
+            <div className="left-col" styles={styles.leftCol}>
               <label htmlFor="l-email">Email:</label>
             </div>
-            <div className="right-col">
+            <div className="right-col" styles={styles.rightCol}>
               <input
                 name="l-email"
                 type="email"
@@ -100,7 +100,8 @@ class Login extends Component {
             </div>
           </div>
           <input
-            className="loginBtn transparent btn"
+            className="transparent btn"
+            style={styles.loginBtn}
             type="submit"
             value="Log In!"
           />
@@ -109,5 +110,33 @@ class Login extends Component {
     );
   }
 }
+
+const styles = {
+  container: {
+    display: "inline-block",
+    border: "1px solid darkgray",
+    width: "90vw",
+    padding: "1rem",
+    margin: "1rem"
+  },
+  inputBox: {
+    margin: "0.4rem"
+  },
+  leftCol: {
+    display: "inline-block",
+    textAlign: "right",
+    padding: "0.3em",
+    width: "22%"
+  },
+  rightCol: {
+    display: "inline-block",
+    textAlign: "left",
+    padding: "0.3em",
+    width: "35%"
+  },
+  loginBtn: {
+    border: "1px solid white"
+  }
+};
 
 export default Login;

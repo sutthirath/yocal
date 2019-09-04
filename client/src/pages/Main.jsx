@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Main.css";
-import Distance from "../../components/Distance/Distance";
+
+import Distance from "../components/Distance";
 
 const Main = props => (
-  <div className="Main">
+  <div className="Main" style={styles.container}>
     <h5>{props.title}</h5>
     {props.places.map((place, idx) => {
       const imgSrc = place.categories.length > 0 && place.categories[0].icon;
@@ -12,7 +12,8 @@ const Main = props => (
       return (
         <Link to="/details" key={idx}>
           <div
-            className="Place btn amber card"
+            className="btn amber card"
+            style={styles.place}
             onClick={() => props.handleVenue(place.id)}
           >
             <span className="left">{`${idx + 1}. `}</span>
@@ -37,5 +38,17 @@ const Main = props => (
     })}
   </div>
 );
+
+const styles = {
+  conatiner: {
+    height: "80vh",
+    width: "100vw",
+    overflow: "scroll"
+  },
+  place: {
+    width: "75vw",
+    overflow: "hidden"
+  }
+};
 
 export default Main;

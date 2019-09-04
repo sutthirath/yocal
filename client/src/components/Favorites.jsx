@@ -10,9 +10,7 @@ class Favorites extends React.Component {
       name: this.props.venue.name,
       city: this.props.venue.location.city,
       state: this.props.venue.location.state,
-      photo: `${this.props.venue.bestPhoto.prefix}150x150${
-        this.props.venue.bestPhoto.suffix
-      }`
+      photo: `${this.props.venue.bestPhoto.prefix}150x150${this.props.venue.bestPhoto.suffix}`
     })
       .then(function(response) {
         console.log(response);

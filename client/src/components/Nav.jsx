@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { UserProfile } from "../UserProfile/UserProfile";
+
+import { UserProfile } from "./UserProfile";
 
 const Nav = props => (
   <nav className="Nav transparent z-depth-0">

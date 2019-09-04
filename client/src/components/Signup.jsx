@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ErrorPanel from "../../ErrorPanel";
-import "./Signup.css";
+
+import ErrorPanel from "../ErrorPanel";
 
 class Signup extends Component {
   constructor(props) {
@@ -155,12 +155,12 @@ class Signup extends Component {
       ""
     );
     return (
-      <div className="Signup">
+      <div className="Signup" style={styles.container}>
         <h3>Create a new account:</h3>
         {errorPanel}
         <form onSubmit={this.handleSubmit}>
-          <div className="input-box">
-            <div className="left-col">
+          <div className="input-box" style={styles.inputBox}>
+            <div className="left-col" style={styles.leftCol}>
               <label htmlFor="s-name">Name:</label>
             </div>
             <div className="right-col">
@@ -176,7 +176,7 @@ class Signup extends Component {
             <div className="left-col">
               <label htmlFor="s-email">Email:</label>
             </div>
-            <div className="right-col">
+            <div className="right-col" style={styles.rightCol}>
               <input
                 name="s-email"
                 type="email"
@@ -202,31 +202,32 @@ class Signup extends Component {
             <p>Password must meet these requirements:</p>
             <ul>
               <li
-                className={
+                style={
                   this.state.password.length > 9 &&
                   this.state.password.length < 129
-                    ? "green"
-                    : "red"
+                    ? styles.green
+                    : styles.red
                 }
               >
                 Length (10 to 128): {this.state.password.length}
               </li>
-              <li className={this.state.passHasCap ? "green" : "red"}>
+              <li style={this.state.passHasCap ? styles.green : styles.red}>
                 Contain 1+ uppercase letter (A-Z)
               </li>
-              <li className={this.state.passHasLow ? "green" : "red"}>
+              <li style={this.state.passHasLow ? styles.green : styles.red}>
                 Contain 1+ lowercase letter (a-z)
               </li>
-              <li className={this.state.passHasDig ? "green" : "red"}>
+              <li style={this.state.passHasDig ? styles.green : styles.red}>
                 Contain 1+ digit (0-9)
               </li>
-              <li className={this.state.passHasPunc ? "green" : "red"}>
+              <li style={this.state.passHasPunc ? styles.green : styles.red}>
                 Contain 1+ special character (punctuation)
               </li>
             </ul>
           </div>
           <input
             className="btn transparent signupBtn"
+            style={styles.signupBtn}
             type="submit"
             value="Sign Up!"
           />
@@ -235,5 +236,45 @@ class Signup extends Component {
     );
   }
 }
+
+const styles = {
+  container: {
+    display: "inline-block",
+    width: "90vw",
+    border: "1px solid darkgray",
+    padding: "1rem",
+    margin: "1rem"
+  },
+  inputBox: {
+    margin: "0.4rem"
+  },
+  leftCol: {
+    display: "inline-block",
+    textAlign: "right",
+    padding: "0.3em",
+    width: "22%"
+  },
+  rightCol: {
+    display: "inline-block",
+    textAlign: "left",
+    padding: "0.3em",
+    width: "35%"
+  },
+  red: {
+    backgroundColor: "Tomato",
+    listStyleType: "none",
+    margin: "0.1em",
+    padding: "0.1em"
+  },
+  green: {
+    backgroundColor: "YellowGreen",
+    listStyleType: "none",
+    margin: "0.1em",
+    padding: "0.1em"
+  },
+  signupBtn: {
+    border: "1px solid white"
+  }
+};
 
 export default Signup;

@@ -1,5 +1,4 @@
 import React from "react";
-import "./UserProfile.css";
 
 export const UserProfile = props => {
   return (

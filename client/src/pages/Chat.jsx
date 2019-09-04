@@ -2,7 +2,6 @@ import React from "react";
 import io from "socket.io-client";
 import axios from "axios";
 import moment from "moment";
-import "./Chat.css";
 
 export class Chat extends React.Component {
   constructor(props) {
@@ -65,7 +64,7 @@ export class Chat extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-4">
-            <div className="Chat card">
+            <div className="chat card">
               <div className="card-body">
                 <div className="card-title">Yocal Chat</div>
                 <hr />
@@ -113,3 +112,9 @@ export class Chat extends React.Component {
     );
   }
 }
+
+const styles = {
+  chat: {
+    height: "90vh"
+  }
+};
