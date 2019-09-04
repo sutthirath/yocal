@@ -64,7 +64,7 @@ export class Chat extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-4">
-            <div className="chat card">
+            <div className="chat card" style={styles.chat}>
               <div className="card-body">
                 <div className="card-title">Yocal Chat</div>
                 <hr />

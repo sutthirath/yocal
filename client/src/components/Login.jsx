@@ -71,13 +71,13 @@ class Login extends Component {
     return (
       <div className="Login" style={styles.container}>
         <h3>Log in:</h3>
-        {errorPanel}
+        <p>{errorPanel}</p>
         <form onSubmit={this.handleSubmit}>
-          <div className="input-box" style={styles.inputBox}>
-            <div className="left-col" styles={styles.leftCol}>
+          <div className="input-box">
+            <div className="left-col">
               <label htmlFor="l-email">Email:</label>
             </div>
-            <div className="right-col" styles={styles.rightCol}>
+            <div className="right-col">
               <input
                 name="l-email"
                 type="email"
@@ -99,12 +99,13 @@ class Login extends Component {
               />
             </div>
           </div>
-          <input
-            className="transparent btn"
-            style={styles.loginBtn}
+          <button
+            className="waves-effect btn-large btn"
+            style={styles.button}
             type="submit"
-            value="Log In!"
-          />
+          >
+            Submit
+          </button>
         </form>
       </div>
     );
@@ -114,28 +115,14 @@ class Login extends Component {
 const styles = {
   container: {
     display: "inline-block",
-    border: "1px solid darkgray",
-    width: "90vw",
-    padding: "1rem",
-    margin: "1rem"
+    backgroundColor: "#fcd411",
+    width: "100vw",
+    height: "100vh",
+    padding: "0",
+    margin: "0"
   },
-  inputBox: {
-    margin: "0.4rem"
-  },
-  leftCol: {
-    display: "inline-block",
-    textAlign: "right",
-    padding: "0.3em",
-    width: "22%"
-  },
-  rightCol: {
-    display: "inline-block",
-    textAlign: "left",
-    padding: "0.3em",
-    width: "35%"
-  },
-  loginBtn: {
-    border: "1px solid white"
+  button: {
+    backgroundColor: "rgb(63, 63, 63)"
   }
 };
 

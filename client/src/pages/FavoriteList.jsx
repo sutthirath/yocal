@@ -2,8 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 
-import BackBtn from "../components/BackBtn";
-
 class FavoriteList extends React.Component {
   constructor(props) {
     super(props);

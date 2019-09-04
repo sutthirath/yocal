@@ -240,10 +240,11 @@ class Signup extends Component {
 const styles = {
   container: {
     display: "inline-block",
-    width: "90vw",
-    border: "1px solid darkgray",
-    padding: "1rem",
-    margin: "1rem"
+    backgroundColor: "#fcd411",
+    width: "100vw",
+    height: "100vh",
+    padding: "0",
+    margin: "0"
   },
   inputBox: {
     margin: "0.4rem"
