@@ -157,7 +157,7 @@ class Signup extends Component {
     return (
       <div className="Signup" style={styles.container}>
         <h3>Create a new account:</h3>
-        <p style={styles.alert}>{errorPanel}</p>
+        {errorPanel}
         <div style={styles.formContainer}>
           <form onSubmit={this.handleSubmit} style={styles.form}>
             <div className="input-field col" style={styles.input}>
@@ -241,9 +241,6 @@ const styles = {
     width: "100vw",
     height: "100vh",
     textAlign: "center"
-  },
-  alert: {
-    color: "tomato"
   },
   formContainer: {
     width: "100%",

@@ -43,14 +43,14 @@ app.use(require("method-override")("_method"));
 
 // app.use("/api/yocal", require("./routes/api"));
 
-var loginLimiter = new RateLimit({
+let loginLimiter = new RateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutes
   max: 5,
   delayMs: 0, // disabled
   message: "Maximum login attempts exceeded. Please try again later."
 });
 
-var signupLimiter = new RateLimit({
+let signupLimiter = new RateLimit({
   windowMs: 60 * 60 * 1000, // 60 minutes
   max: 5,
   delayMs: 0, // disabled
@@ -77,7 +77,7 @@ app.get("/*", (req, res, next) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
-var port = process.env.PORT || 3001;
+let port = process.env.PORT || 3001;
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);

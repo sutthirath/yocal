@@ -71,7 +71,7 @@ class Login extends Component {
     return (
       <div className="Login" style={styles.container}>
         <h3>Welcome back adventurer!</h3>
-        <p style={styles.alert}>{errorPanel}</p>
+        {errorPanel}
         <div style={styles.formContainer}>
           <form
             onSubmit={this.handleSubmit}
@@ -123,9 +123,6 @@ const styles = {
     width: "100vw",
     height: "100vh",
     textAlign: "center"
-  },
-  alert: {
-    color: "tomato"
   },
   formContainer: {
     width: "100%",

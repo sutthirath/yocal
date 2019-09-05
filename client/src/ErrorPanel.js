@@ -18,7 +18,7 @@ const ErrorPanel = props => {
 
   return (
     <div className="Error-panel">
-      <p>{message}</p>
+      <p style={{ color: "tomato" }}>{message}</p>
     </div>
   );
 };
