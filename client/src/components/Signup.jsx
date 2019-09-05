@@ -157,81 +157,78 @@ class Signup extends Component {
     return (
       <div className="Signup" style={styles.container}>
         <h3>Create a new account:</h3>
-        {errorPanel}
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-box" style={styles.inputBox}>
-            <div className="left-col" style={styles.leftCol}>
-              <label htmlFor="s-name">Name:</label>
+        <p style={styles.alert}>{errorPanel}</p>
+        <div style={styles.formContainer}>
+          <form onSubmit={this.handleSubmit} style={styles.form}>
+            <div className="input-field col" style={styles.input}>
+              <div className="input-field col s6">
+                <i className="material-icons prefix">person</i>
+                <input
+                  name="s-name"
+                  type="text"
+                  value={this.state.name}
+                  onChange={this.handleNameChange}
+                />
+                <label htmlFor="s-name">Full Name</label>
+              </div>
+              <div className="input-field col s6">
+                <i className="material-icons prefix">email</i>
+                <input
+                  name="s-email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.handleEmailChange}
+                />
+                <label htmlFor="s-email">Email</label>
+              </div>
+              <div className="input-field col s6">
+                <i className="material-icons prefix">lock</i>
+                <input
+                  name="s-password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange}
+                />
+                <label htmlFor="s-password">Password</label>
+              </div>
             </div>
-            <div className="right-col">
-              <input
-                name="s-name"
-                type="text"
-                value={this.state.name}
-                onChange={this.handleNameChange}
-              />
+            <div>
+              <p>Password must meet these requirements:</p>
+              <ul style={styles.list}>
+                <li
+                  style={
+                    this.state.password.length >= 8 &&
+                    this.state.password.length <= 128
+                      ? styles.green
+                      : styles.red
+                  }
+                >
+                  Character length (8 to 128): currently (
+                  {this.state.password.length})
+                </li>
+                <li style={this.state.passHasCap ? styles.green : styles.red}>
+                  Contain at least one uppercase letter (A-Z)
+                </li>
+                <li style={this.state.passHasLow ? styles.green : styles.red}>
+                  Contain at least one lowercase letter (a-z)
+                </li>
+                <li style={this.state.passHasDig ? styles.green : styles.red}>
+                  Contain at least one digit (0-9)
+                </li>
+                <li style={this.state.passHasPunc ? styles.green : styles.red}>
+                  Contain at least one special character (punctuation)
+                </li>
+              </ul>
             </div>
-          </div>
-          <div className="input-box">
-            <div className="left-col">
-              <label htmlFor="s-email">Email:</label>
-            </div>
-            <div className="right-col" style={styles.rightCol}>
-              <input
-                name="s-email"
-                type="email"
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-              />
-            </div>
-          </div>
-          <div className="input-box">
-            <div className="left-col">
-              <label htmlFor="s-password">Password:</label>
-            </div>
-            <div className="right-col">
-              <input
-                name="s-password"
-                type="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-              />
-            </div>
-          </div>
-          <div>
-            <p>Password must meet these requirements:</p>
-            <ul>
-              <li
-                style={
-                  this.state.password.length > 9 &&
-                  this.state.password.length < 129
-                    ? styles.green
-                    : styles.red
-                }
-              >
-                Length (10 to 128): {this.state.password.length}
-              </li>
-              <li style={this.state.passHasCap ? styles.green : styles.red}>
-                Contain 1+ uppercase letter (A-Z)
-              </li>
-              <li style={this.state.passHasLow ? styles.green : styles.red}>
-                Contain 1+ lowercase letter (a-z)
-              </li>
-              <li style={this.state.passHasDig ? styles.green : styles.red}>
-                Contain 1+ digit (0-9)
-              </li>
-              <li style={this.state.passHasPunc ? styles.green : styles.red}>
-                Contain 1+ special character (punctuation)
-              </li>
-            </ul>
-          </div>
-          <input
-            className="btn transparent signupBtn"
-            style={styles.signupBtn}
-            type="submit"
-            value="Sign Up!"
-          />
-        </form>
+            <button
+              className="waves-effect btn-large btn"
+              style={styles.button}
+              type="submit"
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
@@ -243,38 +240,38 @@ const styles = {
     backgroundColor: "#fcd411",
     width: "100vw",
     height: "100vh",
-    padding: "0",
-    margin: "0"
+    textAlign: "center"
   },
-  inputBox: {
-    margin: "0.4rem"
+  alert: {
+    color: "tomato"
   },
-  leftCol: {
-    display: "inline-block",
-    textAlign: "right",
-    padding: "0.3em",
-    width: "22%"
+  formContainer: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center"
   },
-  rightCol: {
-    display: "inline-block",
-    textAlign: "left",
-    padding: "0.3em",
-    width: "35%"
+  form: {
+    width: "40%"
+  },
+  input: {
+    backgroundColor: "white",
+    padding: "20px 30px"
+  },
+  list: {
+    listStyleType: "none",
+    textAlign: "left"
   },
   red: {
-    backgroundColor: "Tomato",
-    listStyleType: "none",
-    margin: "0.1em",
-    padding: "0.1em"
+    backgroundColor: "tomato",
+    paddingLeft: "10px"
   },
   green: {
-    backgroundColor: "YellowGreen",
-    listStyleType: "none",
-    margin: "0.1em",
-    padding: "0.1em"
+    backgroundColor: "yellowgreen",
+    paddingLeft: "10px"
   },
-  signupBtn: {
-    border: "1px solid white"
+  button: {
+    backgroundColor: "rgb(63, 63, 63)"
   }
 };
 

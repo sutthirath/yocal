@@ -1,16 +1,16 @@
-import React from 'react';
+import React from "react";
 
 const ErrorPanel = props => {
-  let message = '';
-  switch(props.error.type) {
-    case 'auth_error':
-      message = props.error.message
+  let message = "";
+  switch (props.error.type) {
+    case "auth_error":
+      message = props.error.message;
       break;
-    case 'db_error':
-      message = props.error.error.message
+    case "db_error":
+      message = props.error.error.message;
       break;
-    case 'rate_error':
-      message = props.error.message
+    case "rate_error":
+      message = props.error.message;
       break;
     default:
       break;
@@ -20,7 +20,7 @@ const ErrorPanel = props => {
     <div className="Error-panel">
       <p>{message}</p>
     </div>
-  )
-}
+  );
+};
 
 export default ErrorPanel;

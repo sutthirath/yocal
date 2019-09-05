@@ -164,7 +164,6 @@ class App extends Component {
         <Router>
           <div className="App" styles={styles.container}>
             <Nav user={this.state.user} logout={this.logout} />
-
             <Switch>
               <Route
                 exact

@@ -70,43 +70,47 @@ class Login extends Component {
     );
     return (
       <div className="Login" style={styles.container}>
-        <h3>Log in:</h3>
-        <p>{errorPanel}</p>
-        <form onSubmit={this.handleSubmit}>
-          <div className="input-box">
-            <div className="left-col">
-              <label htmlFor="l-email">Email:</label>
-            </div>
-            <div className="right-col">
-              <input
-                name="l-email"
-                type="email"
-                value={this.state.email}
-                onChange={this.handleEmailChange}
-              />
-            </div>
-          </div>
-          <div className="input-box">
-            <div className="left-col">
-              <label htmlFor="l-password">Password:</label>
-            </div>
-            <div className="right-col">
-              <input
-                name="l-password"
-                type="password"
-                value={this.state.password}
-                onChange={this.handlePasswordChange}
-              />
-            </div>
-          </div>
-          <button
-            className="waves-effect btn-large btn"
-            style={styles.button}
-            type="submit"
+        <h3>Welcome back adventurer!</h3>
+        <p style={styles.alert}>{errorPanel}</p>
+        <div style={styles.formContainer}>
+          <form
+            onSubmit={this.handleSubmit}
+            className="col"
+            style={styles.form}
           >
-            Submit
-          </button>
-        </form>
+            <div className="input-field col" style={styles.input}>
+              <div className="input-field col s6">
+                <i className="material-icons prefix">email</i>
+                <input
+                  className="validate"
+                  name="l-email"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.handleEmailChange}
+                />
+                <label htmlFor="l-email">Email</label>
+              </div>
+              <div className="input-field col s6">
+                <i className="material-icons prefix">lock</i>
+                <input
+                  className="validate"
+                  name="l-password"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.handlePasswordChange}
+                />
+                <label htmlFor="l-password">Password</label>
+              </div>
+            </div>
+            <button
+              className="waves-effect btn-large btn"
+              style={styles.button}
+              type="submit"
+            >
+              Log In
+            </button>
+          </form>
+        </div>
       </div>
     );
   }
@@ -118,8 +122,23 @@ const styles = {
     backgroundColor: "#fcd411",
     width: "100vw",
     height: "100vh",
-    padding: "0",
-    margin: "0"
+    textAlign: "center"
+  },
+  alert: {
+    color: "tomato"
+  },
+  formContainer: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    justifyContent: "center"
+  },
+  form: {
+    width: "40%"
+  },
+  input: {
+    backgroundColor: "white",
+    padding: "30px"
   },
   button: {
     backgroundColor: "rgb(63, 63, 63)"

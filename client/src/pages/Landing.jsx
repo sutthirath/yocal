@@ -9,12 +9,18 @@ const Landing = props => (
     <img src={icon} style={styles.icon} alt="busy street with lots of people" />
     <div style={styles.landingBtn}>
       <Link to="/login">
-        <button className="btn btn-large waves-effect" style={styles.logInBtn}>
+        <button
+          className="btn btn-large waves-effect left"
+          style={styles.logInBtn}
+        >
           Log In
         </button>
       </Link>
       <Link to="/signup">
-        <button className="btn btn-large waves-effect" style={styles.signUpBtn}>
+        <button
+          className="btn btn-large waves-effect right"
+          style={styles.signUpBtn}
+        >
           Sign Up
         </button>
       </Link>
