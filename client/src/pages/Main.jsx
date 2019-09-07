@@ -12,26 +12,28 @@ const Main = props => (
       return (
         <Link to="/details" key={idx}>
           <div
-            className="btn amber card"
+            className="amber card row"
             style={styles.place}
             onClick={() => props.handleVenue(place.id)}
           >
-            <span className="left">{`${idx + 1}. `}</span>
-            <span className="left">{place.name}</span>
-            <span className="left">{`Categories: ${catName}`}</span>
-            <span className="left">
-              <Distance
-                lat1={props.lat1}
-                lon1={props.lon1}
-                lat2={place.location.lat}
-                lon2={place.location.lng}
-              />
-            </span>
-            <span className="left">
+            <div style={styles.title}>
+              <h6 style={styles.text}>{`${idx + 1}. ${place.name}`}</h6>
+            </div>
+            <div style={styles.category}>
+              <p>{catName}</p>
+            </div>
+            <Distance
+              style={styles.distance}
+              lat1={props.lat1}
+              lon1={props.lon1}
+              lat2={place.location.lat}
+              lon2={place.location.lng}
+            />
+            <div style={styles.image}>
               {imgSrc && (
                 <img src={`${imgSrc.prefix}bg_32${imgSrc.suffix}`} alt="icon" />
               )}
-            </span>
+            </div>
           </div>
         </Link>
       );
@@ -40,14 +42,48 @@ const Main = props => (
 );
 
 const styles = {
-  conatiner: {
-    height: "80vh",
-    width: "100vw",
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    backgroundColor: "#fcd411",
+    height: "100%",
+    width: "100%",
     overflow: "scroll"
   },
   place: {
-    width: "75vw",
-    overflow: "hidden"
+    display: "grid",
+    color: "white",
+    width: "30em",
+    height: "5em",
+    gridTemplateColumns: "2fr 2fr 1fr",
+    gridTemplateRows: "2fr 1fr",
+    gridTemplateAreas: `
+    "title    title    title"
+    "category distance image"
+    `
+  },
+  title: {
+    gridArea: "title",
+    textAlign: "start",
+    whiteSpace: "nowrap",
+    overflow: "scroll",
+    padding: "0 1em"
+  },
+  text: {
+    margin: "0",
+    padding: "0"
+  },
+  category: {
+    gridArea: "category",
+    paddingLeft: "1em"
+  },
+  distance: {
+    gridArea: "distance"
+  },
+  image: {
+    gridArea: "image",
+    paddingRight: "1em"
   }
 };
 

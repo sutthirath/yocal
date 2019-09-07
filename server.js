@@ -10,7 +10,9 @@ const chatHistory = require("./routes/chatHistory");
 const RateLimit = require("express-rate-limit");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
-let socket = require("socket.io");
+const socket = require("socket.io");
+const port = process.env.PORT || 3001;
+
 // TEST
 const favorite = require("./routes/favorites");
 
@@ -26,7 +28,6 @@ io = socket(server);
 
 io.on("connection", socket => {
   console.log(socket.id);
-
   socket.on("SEND_MESSAGE", function(data) {
     io.emit("RECEIVE_MESSAGE", data);
   });
@@ -66,6 +67,7 @@ app.use("/chat_history", chatHistory);
 app.use("/favorites", favorite);
 
 app.use("/auth", auth);
+
 // This line uses the express-jwt node module to protect the routes
 app.use(
   "/locked",
@@ -76,8 +78,6 @@ app.use(
 app.get("/*", (req, res, next) => {
   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
-
-let port = process.env.PORT || 3001;
 
 app.listen(port, function() {
   console.log(`Express app running on port ${port}`);

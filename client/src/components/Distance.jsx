@@ -38,7 +38,7 @@ class Distance extends React.Component {
             this.props.lat2,
             this.props.lon2
           )}{" "}
-          miles
+          miles away
         </p>
       </div>
     );
