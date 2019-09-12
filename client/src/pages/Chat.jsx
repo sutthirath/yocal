@@ -99,7 +99,7 @@ export class Chat extends React.Component {
                 <br />
                 <button
                   onClick={this.sendMessage}
-                  className="btn btn-primary form-control"
+                  className="btn btn-primary amber form-control"
                   // method="POST"
                 >
                   Send

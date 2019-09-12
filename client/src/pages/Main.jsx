@@ -48,8 +48,7 @@ const styles = {
     alignItems: "center",
     backgroundColor: "#fcd411",
     height: "100%",
-    width: "100%",
-    overflow: "scroll"
+    width: "100%"
   },
   place: {
     display: "grid",

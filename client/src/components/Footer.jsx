@@ -2,39 +2,42 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <div className="Footer" style={styles.conatiner}>
-    <footer className="page-footer transparent" style={styles.pageFooter}>
-      <ul>
-        <Link to="/myplaces">
-          <li className="left" style={styles.myPlacesBtn}>
-            My Places
-          </li>
-        </Link>
-        <Link to="/chat">
-          <li className="right" style={styles.chatBtn}>
-            Chat
-          </li>
-        </Link>
-      </ul>
+  <div className="Footer" style={styles.container}>
+    <footer className="page-footer" style={styles.pageFooter}>
+      <Link to="/myplaces">
+        <div style={styles.center}>
+          <p>My Places</p>
+        </div>
+      </Link>
+      <Link to="/chat">
+        <div style={styles.center}>
+          <p>Chat</p>
+        </div>
+      </Link>
     </footer>
   </div>
 );
 
 const styles = {
-  conatiner: {
-    margin: "0 auto",
-    display: "inline",
-    color: "black"
+  container: {
+    position: "fixed",
+    bottom: "0",
+    left: "0",
+    right: "0"
   },
   pageFooter: {
-    padding: 0,
-    margin: 0
+    margin: "0",
+    padding: "0",
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "rgb(63, 63, 63)"
   },
-  myPlacesBtn: {
-    width: "49vw"
-  },
-  chatBtn: {
-    width: "49vw"
+  center: {
+    textAlign: "center",
+    color: "white"
   }
 };
 

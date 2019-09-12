@@ -5,7 +5,8 @@ export const UserProfile = props => {
   return (
     <div className="User-profile">
       <ul>
-        <li>{`Hello, ${name} |`}</li>
+        <li>Hello, {name}</li>
+        <li style={{ margin: "0 5px" }}>|</li>
         <li onClick={props.logout}>Logout</li>
       </ul>
     </div>
