@@ -98,14 +98,14 @@ class App extends Component {
   }
 
   // Takes user's input and calls fetch
-  handleSearch = e => {
+  handleSearch = input => {
     this.setState({
-      search: e.target.value,
-      title: `Results for "${e.target.value}"`
+      search: input,
+      title: `Results for "${input}"`
     });
 
     fetch(
-      `https://api.foursquare.com/v2/venues/search?query=${e.target.value}&ll=${
+      `https://api.foursquare.com/v2/venues/search?query=${input}&ll=${
         this.state.latitude
       },${this.state.longitude}&client_id=${
         process.env.REACT_APP_CLIENT_ID

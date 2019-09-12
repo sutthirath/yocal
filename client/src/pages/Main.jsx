@@ -67,7 +67,6 @@ const styles = {
     gridArea: "title",
     textAlign: "start",
     whiteSpace: "nowrap",
-    overflow: "scroll",
     padding: "0 1em"
   },
   text: {

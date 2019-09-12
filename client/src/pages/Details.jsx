@@ -41,7 +41,6 @@ class Details extends React.Component {
 
   render() {
     const detail = this.state.venue;
-    console.log(detail);
 
     return (
       <div className="conatiner">
@@ -50,7 +49,7 @@ class Details extends React.Component {
           <div className="card-image">
             <img
               src={`${detail.bestPhoto.prefix}150x150${detail.bestPhoto.suffix}`}
-              alt=""
+              alt={detail.name || "Sorry, no image available"}
             />
             <span className="card-title">{detail.name}</span>
           </div>

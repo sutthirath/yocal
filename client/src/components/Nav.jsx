@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserProfile } from "./UserProfile";
 
 const Nav = props => (
-  <nav className="Nav transparent z-depth-0">
+  <nav className="Nav z-depth-0" style={styles.container}>
     <ul>
       <Link to="/">
         <li className="brand-logo left">yocal</li>
@@ -15,5 +15,11 @@ const Nav = props => (
     </ul>
   </nav>
 );
+
+const styles = {
+  container: {
+    backgroundColor: "#fcd411"
+  }
+};
 
 export default Nav;

@@ -46,6 +46,7 @@ class Login extends Component {
           this.setState({
             error: null
           });
+          window.location.replace("/");
         }
       })
       .catch(err => {

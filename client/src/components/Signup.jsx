@@ -133,6 +133,7 @@ class Signup extends Component {
           } else {
             localStorage.setItem("mernToken", result.data.token);
             this.props.liftToken(result.data);
+            window.location.replace("/");
           }
         })
         .catch(err => {
